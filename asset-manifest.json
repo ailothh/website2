@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/website2/static/css/main.8f0b2dd9.css",
+    "main.js": "/website2/static/js/main.776aa42f.js",
+    "static/js/146.398f699d.chunk.js": "/website2/static/js/146.398f699d.chunk.js",
+    "static/media/Resume_Online.pdf": "/website2/static/media/Resume_Online.229c65e0475546c8f5b4.pdf",
+    "static/media/github.svg": "/website2/static/media/github.d344c0fc70ddfb6de253ddc40adcb086.svg",
+    "index.html": "/website2/index.html",
+    "static/media/linkedin.svg": "/website2/static/media/linkedin.4f00d78f67f451cf01173f7418aa186f.svg",
+    "main.8f0b2dd9.css.map": "/website2/static/css/main.8f0b2dd9.css.map",
+    "main.776aa42f.js.map": "/website2/static/js/main.776aa42f.js.map",
+    "146.398f699d.chunk.js.map": "/website2/static/js/146.398f699d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f0b2dd9.css",
+    "static/js/main.776aa42f.js"
+  ]
+}
