@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/website2/static/css/main.51242a85.css",
+    "main.js": "/website2/static/js/main.1b9fe842.js",
+    "static/js/373.063af05e.chunk.js": "/website2/static/js/373.063af05e.chunk.js",
+    "static/media/Winkler_Resume.pdf": "/website2/static/media/Winkler_Resume.393d3eb14637c7804bf3.pdf",
+    "static/media/github.svg": "/website2/static/media/github.d344c0fc70ddfb6de253ddc40adcb086.svg",
+    "index.html": "/website2/index.html",
+    "static/media/linkedin.svg": "/website2/static/media/linkedin.4f00d78f67f451cf01173f7418aa186f.svg",
+    "main.51242a85.css.map": "/website2/static/css/main.51242a85.css.map",
+    "main.1b9fe842.js.map": "/website2/static/js/main.1b9fe842.js.map",
+    "373.063af05e.chunk.js.map": "/website2/static/js/373.063af05e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.51242a85.css",
+    "static/js/main.1b9fe842.js"
+  ]
+}
