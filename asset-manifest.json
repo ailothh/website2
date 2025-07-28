@@ -9,16 +9,10 @@
     "static/media/linkedin.svg": "/static/media/linkedin.4f00d78f67f451cf01173f7418aa186f.svg",
     "main.4b621019.css.map": "/static/css/main.4b621019.css.map",
     "main.666e2671.js.map": "/static/js/main.666e2671.js.map",
-
     "128.03c13b7c.chunk.js.map": "/static/js/128.03c13b7c.chunk.js.map",
-
-
     "assets/github.svg": "/assets/github.svg",
     "assets/linkedin.svg": "/assets/linkedin.svg",
     "assets/Winkler_Resume.pdf": "/assets/Winkler_Resume.pdf"
-    "128.03c13b7c.chunk.js.map": "/static/js/128.03c13b7c.chunk.js.map"
-
-
   },
   "entrypoints": [
     "static/css/main.4b621019.css",
