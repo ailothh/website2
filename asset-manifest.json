@@ -1,15 +1,31 @@
 {
   "files": {
-    "main.css": "/website2/static/css/main.4b621019.css",
-    "main.js": "/website2/static/js/main.666e2671.js",
-    "static/js/128.03c13b7c.chunk.js": "/website2/static/js/128.03c13b7c.chunk.js",
-    "static/media/Winkler_Resume.pdf": "/website2/static/media/Winkler_Resume.393d3eb14637c7804bf3.pdf",
-    "static/media/github.svg": "/website2/static/media/github.d344c0fc70ddfb6de253ddc40adcb086.svg",
-    "index.html": "/website2/index.html",
-    "static/media/linkedin.svg": "/website2/static/media/linkedin.4f00d78f67f451cf01173f7418aa186f.svg",
-    "main.4b621019.css.map": "/website2/static/css/main.4b621019.css.map",
-    "main.666e2671.js.map": "/website2/static/js/main.666e2671.js.map",
-    "128.03c13b7c.chunk.js.map": "/website2/static/js/128.03c13b7c.chunk.js.map"
+    "main.css": "/static/css/main.4b621019.css",
+    "main.js": "/static/js/main.666e2671.js",
+    "static/js/128.03c13b7c.chunk.js": "/static/js/128.03c13b7c.chunk.js",
+    "static/media/Winkler_Resume.pdf": "/static/media/Winkler_Resume.393d3eb14637c7804bf3.pdf",
+    "static/media/github.svg": "/static/media/github.d344c0fc70ddfb6de253ddc40adcb086.svg",
+    "index.html": "/index.html",
+    "static/media/linkedin.svg": "/static/media/linkedin.4f00d78f67f451cf01173f7418aa186f.svg",
+    "main.4b621019.css.map": "/static/css/main.4b621019.css.map",
+    "main.666e2671.js.map": "/static/js/main.666e2671.js.map",
+
+    "128.03c13b7c.chunk.js.map": "/static/js/128.03c13b7c.chunk.js.map",
+
+    "assets/github.svg": "/static/github.svg",
+    "assets/linkedin.svg": "/static/linkedin.svg",
+    "assets/Winkler_Resume.pdf": "/static/Winkler_Resume.pdf",
+    "static/media/github.svg": "/static/media/github.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.svg",
+    "static/media/Winkler_Resume.pdf": "/static/media/Winkler_Resume.pdf"
+=======
+    "assets/github.svg": "/assets/github.svg",
+    "assets/linkedin.svg": "/assets/linkedin.svg",
+    "assets/Winkler_Resume.pdf": "/assets/Winkler_Resume.pdf"
+=======
+    "128.03c13b7c.chunk.js.map": "/static/js/128.03c13b7c.chunk.js.map"
+
+
   },
   "entrypoints": [
     "static/css/main.4b621019.css",
