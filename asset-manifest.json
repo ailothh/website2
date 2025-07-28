@@ -11,11 +11,20 @@
     "main.666e2671.js.map": "/static/js/main.666e2671.js.map",
 
     "128.03c13b7c.chunk.js.map": "/static/js/128.03c13b7c.chunk.js.map",
+
+    "assets/github.svg": "/static/github.svg",
+    "assets/linkedin.svg": "/static/linkedin.svg",
+    "assets/Winkler_Resume.pdf": "/static/Winkler_Resume.pdf",
+    "static/media/github.svg": "/static/media/github.svg",
+    "static/media/linkedin.svg": "/static/media/linkedin.svg",
+    "static/media/Winkler_Resume.pdf": "/static/media/Winkler_Resume.pdf"
+=======
     "assets/github.svg": "/assets/github.svg",
     "assets/linkedin.svg": "/assets/linkedin.svg",
     "assets/Winkler_Resume.pdf": "/assets/Winkler_Resume.pdf"
 =======
     "128.03c13b7c.chunk.js.map": "/static/js/128.03c13b7c.chunk.js.map"
+
 
   },
   "entrypoints": [
