@@ -1,0 +1,26 @@
+# Enable proper MIME types for assets
+AddType image/svg+xml .svg
+AddType application/pdf .pdf
+
+# Set proper headers for static assets
+<FilesMatch "\.(svg|pdf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
+
+# Ensure static media files are served correctly
+<Directory "/static/media">
+    Options -Indexes
+    Allow from all
+</Directory>
+
+# Handle SPA routing - redirect all requests to index.html
+RewriteEngine On
+RewriteBase /
+
+# Don't rewrite files or directories
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Rewrite everything else to index.html
+RewriteRule . /index.html [L]

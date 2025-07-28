@@ -1,0 +1,6 @@
+# Netlify redirects for static assets
+/static/media/* /static/media/:splat 200
+/assets/* /assets/:splat 200
+
+# Fallback for SPA routing
+/* /index.html 200
