@@ -62,29 +62,19 @@ export function Hero() {
 
       {/* Project Boxes */}
       <div className="boxes-container">
-        {/* Box 4: Zillow - Featured Project */}
-        <div className="box featured-project">
-          <div className="featured-badge">FEATURED RESEARCH</div>
+        {/* Box 1: Zillow */}
+        <div className="box">
           <div className="box-title-container">
             <div className="box-title">Zillow Hot Home Algorithm Exploitation</div>
             <div className="box-icons">
               <img src={sat} alt="Satellite Icon" />
             </div>
           </div>
-          <div className="line featured-line"></div>
+          <div className="line"></div>
           <div className="sub">Python, React, JavaScript, GitHub Pages, HTML/CSS</div>
+          <p className="blank-paragraph"></p>
           <div className="box-content">
-          Conducted an independent security analysis of Zillow's engagement-based ranking system, demonstrating how insufficient rate limiting and verification controls could be leveraged to manipulate algorithmic trust. This research combined reverse engineering, automated traffic generation, and custom OSINT tooling to reveal exploitable weaknesses in the platform's "Hot Home" feature.
-
-Key Highlights
-
-Discovered and exploited critical vulnerabilities in Zillow's ranking algorithm by reverse-engineering the Hot Home feature.
-
-Artificially inflated engagement metrics, increasing a property's views from 2 → 450+ and generating 400 synthetic likes, successfully triggering the Hot Home tag.
-
-Leveraged custom OSINT tools to harvest and generate 2,000+ validated email addresses from underground forums, achieving a 98% success rate in account creation without triggering fraud detection.
-
-Authored a 10-page technical paper documenting the exploit methodology, impact on algorithmic integrity, and recommended mitigations—demonstrating full-cycle security research and red-team methodology.</div>
+          Conducted an independent security analysis of Zillow's engagement-based ranking system, demonstrating how insufficient rate limiting and verification controls could be leveraged to manipulate algorithmic trust. This research combined reverse engineering, automated traffic generation, and custom OSINT tooling to reveal exploitable weaknesses in the platform's "Hot Home" feature. Discovered and exploited critical vulnerabilities in Zillow's ranking algorithm by reverse-engineering the Hot Home feature. Artificially inflated engagement metrics, increasing a property's views from 2 → 450+ and generating 400 synthetic likes, successfully triggering the Hot Home tag. Leveraged custom OSINT tools to harvest and generate 2,000+ validated email addresses from underground forums, achieving a 98% success rate in account creation without triggering fraud detection. Authored a 10-page technical paper documenting the exploit methodology, impact on algorithmic integrity, and recommended mitigations—demonstrating full-cycle security research and red-team methodology.</div>
           <div className="project-buttons">
             <div className="rainbow rainbow_text_animated">
               <a
@@ -108,7 +98,7 @@ Authored a 10-page technical paper documenting the exploit methodology, impact o
             </div>
           </div>
         </div>
-        {/* Box 1: Amazon Tool */}
+        {/* Box 2: Amazon Tool */}
         <div className="box">
           <div className="box-title-container">
             <div className="box-title">Amazon Employee Search Tool</div>
@@ -134,7 +124,7 @@ Authored a 10-page technical paper documenting the exploit methodology, impact o
           </div>
         </div>
 
-        {/* Box 2: Ethical Scraper */}
+        {/* Box 3: Ethical Scraper */}
         <div className="box">
           <div className="box-title-container">
             <div className="box-title">Ethical Scraper</div>
@@ -161,7 +151,7 @@ Authored a 10-page technical paper documenting the exploit methodology, impact o
           </div>
         </div>
 
-        {/* Box 3: UAV Specs Explorer */}
+        {/* Box 4: UAV Specs Explorer */}
         <div className="box">
           <div className="box-title-container">
             <div className="box-title">UAV Specs Explorer</div>
