@@ -12,6 +12,9 @@ const ParticlesComponent = (props) => {
       await loadSlim(engine);
     }).then(() => {
       setInit(true);
+    }).catch((error) => {
+      console.error('Particles initialization failed:', error);
+      // Don't set init to true if particles fail to load
     });
   }, []);
 
@@ -23,13 +26,13 @@ const ParticlesComponent = (props) => {
     () => ({
       background: {
         color: {
-          value: "var(--particle-bg)", // Theme-aware background
+          value: "transparent", // Transparent background for static export
         },
       },
       fpsLimit: 60,
       particles: {
         number: {
-          value: 150,
+          value: 100, // Reduced for better performance in static export
           density: {
             enable: true,
             value_area: 800,
@@ -64,7 +67,7 @@ const ParticlesComponent = (props) => {
           },
         },
         size: {
-          value: 0,
+          value: 1, // Visible particles
           random: false,
           anim: {
             enable: false,
@@ -82,17 +85,12 @@ const ParticlesComponent = (props) => {
         },
         move: {
           enable: true,
-          speed: 2,
+          speed: 1.5,
           direction: "none",
           random: true,
           straight: false,
-          outMode: "bounce",
+          outMode: "out",
           bounce: false,
-          attract: {
-            enable: false,
-            rotateX: 600,
-            rotateY: 1200,
-          },
         },
       },
       interactivity: {
@@ -109,28 +107,9 @@ const ParticlesComponent = (props) => {
           resize: true,
         },
         modes: {
-          grab: {
-            distance: 200,
-            links: {
-              opacity: 1,
-            },
-          },
-          bubble: {
-            distance: 200,
-            size: 40,
-            duration: 2,
-            opacity: 8,
-            speed: 3,
-          },
           repulse: {
-            distance: 150,
+            distance: 100,
             duration: 0.4,
-          },
-          push: {
-            particles_nb: 4,
-          },
-          remove: {
-            particles_nb: 2,
           },
         },
       },
