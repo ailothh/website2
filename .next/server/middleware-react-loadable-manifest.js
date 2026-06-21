@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST='{"app/components/SmoothScroll.js -> lenis":{"id":2691,"files":["static/chunks/691.42871f351eee5364.js"]}}';

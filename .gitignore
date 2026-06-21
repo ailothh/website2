@@ -9,9 +9,17 @@ node_modules/
 # Next.js
 /.next/
 /out/
+/404/
+/assets/
+/index.html
+/404.html
 
 # Production
 /build
+
+# Editor
+.vscode/
+.idea/
 
 # Misc
 .DS_Store

@@ -1,9 +1,12 @@
-import './globals.css'
+import './globals.css';
+import ScrollProgress from './components/ScrollProgress';
+import LoadingScreen from './components/LoadingScreen';
+import SmoothScroll from './components/SmoothScroll';
 
 export const metadata = {
-  title: 'Alexander Winkler - Portfolio',
-  description: 'Portfolio website showcasing security research and development projects',
-}
+  title: 'Alexander Winkler — Security Researcher & Software Engineer',
+  description: 'Portfolio showcasing security research, distributed systems, and full-stack engineering projects.',
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -11,31 +14,17 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-        <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+          rel="stylesheet"
+        />
       </head>
       <body>
-        <div className="loading-screen" id="loading-screen">
-          <div className="loading-spinner"></div>
-          <div className="loading-text">LOADING</div>
-        </div>
+        <LoadingScreen />
+        <SmoothScroll />
+        <ScrollProgress />
         {children}
-        <script dangerouslySetInnerHTML={{
-          __html: `
-            // Loading screen
-            window.addEventListener('load', function() {
-              setTimeout(function() {
-                const loadingScreen = document.getElementById('loading-screen');
-                if (loadingScreen) {
-                  loadingScreen.classList.add('hidden');
-                  setTimeout(function() {
-                    loadingScreen.style.display = 'none';
-                  }, 500);
-                }
-              }, 1500);
-            });
-          `
-        }} />
       </body>
     </html>
-  )
+  );
 }

@@ -1,186 +1,176 @@
 'use client';
 
-import React from 'react';
-import styled from 'styled-components';
-const linkedin = '/assets/icons/linkedin.svg';
-const github = '/assets/icons/github.svg';
-const resume = '/assets/documents/Winkler_Resume.pdf';
-const researchPaper = '/assets/documents/ZillowAlgorithmExploitation.pdf';
-const sat = '/assets/images/sat.png';
-const drone = '/assets/images/drone.png';
-const swat = '/assets/images/swat.jpg';
-const dox = '/assets/images/dox.jpg';
-const amazon = '/assets/images/amazon.jpg';
-import BlurText from './BlurText';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Terminal from './Terminal';
+import ParticlesComponent from './particles';
 
-const Container = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 4rem;
-  max-width: 100%;
-  margin: auto;
-  padding: 4rem;
-`;
+const base = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
-export function Hero() {
+const heroLines = [
+  { type: 'prompt', content: 'recon --target awinkler.dev --extract projects' },
+  { type: 'output', content: '[*] Initializing deep scan...' },
+  { type: 'success', content: '[+] Payload 1: Amazon Security Analytics Engine' },
+  { type: 'success', content: '[+] Payload 2: Zillow Ranking Integrity Framework' },
+  { type: 'success', content: '[+] Payload 3: CrisisCompass Intelligence Dashboard' },
+  { type: 'success', content: '[+] Payload 4: Automated OSINT Crawler Pipeline' },
+  { type: 'muted', content: '[✓] Extraction complete. 4 modules found below.' },
+];
+
+const projectsData = [
+  {
+    title: 'Amazon Enterprise Security Analytics Engine',
+    tech: ['DynamoDB', 'Lambda', 'API Gateway', 'S3', 'Cognito', 'Python'],
+    description: 'Imagine being able to contact Amazon’s top executives directly — Vice Presidents and Principal Engineers — via their phone numbers and emails.\n\nI built exactly that:\n\nDeveloped a serverless cloud security application to analyze the persistence and validity of leaked corporate infrastructure data. The system indexes an exposed dataset containing over 1.2 million AWS employee and support staff profiles, enabling real-time lookups across fields like full names, specific job titles, exact departments, corporate emails, and manager hierarchies to evaluate vulnerabilities against targeted social engineering campaigns. The backend architecture was engineered using FastAPI and Python to process raw threat intel data via Amazon S3, routing profiles into Amazon DynamoDB with Global Secondary Indexes (GSIs) for single-digit millisecond query resolution, while securing the lookup interface through Amazon Cognito JWT authentication.\n\nFollowing corporate compliance and responsible disclosure guidelines, the live data store has been completely purged and the production application taken down. To prevent misuse and avoid hosting a functional exploitation tool, the public repository remains frozen as an archive containing only the legacy RDS setup and baseline pseudo-code, serving purely as an educational template showcasing secure data lifecycle management and scalable NoSQL cloud architecture design.',
+    demo: 'https://employee-search-amazon-n4hjuem2g-ailothhs-projects.vercel.app/',
+  },
+  {
+    title: 'Ranking Algorithm Integrity Framework',
+    subtitle: 'Zillow Audit',
+    tech: ['Python', 'Next.js', 'Git'],
+    description: '• Reverse-engineered engagement-based ranking systems to identify logic flaws in automated verification and rate-limiting controls.\n• Designed and executed a high-concurrency behavioral test that accelerated property visibility from 2 to 450+ views, analyzing synthetic interaction thresholds to audit "Hot Home" algorithmic triggers.\n• Published a 10-page technical research paper detailing system vulnerabilities and architecting defensive mitigations against engagement fraud.',
+    demo: 'https://github.com/ailothh/Zillow-Algorithm-Exploiter',
+    researchPaper: `${base}/assets/documents/ZillowAlgorithmExploitation.pdf`,
+  },
+  {
+    title: 'CrisisCompass',
+    subtitle: 'UN × Databricks Challenge',
+    tech: ['Databricks', 'PySpark', 'React', 'FastAPI', 'Vite', 'Mapbox GL JS', 'XGBoost'],
+    description: 'Built a real-time humanitarian intelligence dashboard in 36 hours that maps the mismatch between disaster risk and humanitarian funding across 53 countries. Utilized distributed PySpark ETL pipelines and XGBoost to aggregate 1,400+ disaster records into predictive risk models, flagging the crises most underfunded relative to severity. Integrated AI-generated briefings with historical pattern matching, risk scores, coping capacity analysis, and recommended next steps — powered by data from INFORM Risk Index, FTS (OCHA), CBPF, and EM-DAT with a Mapbox GL JS frontend for interactive geospatial visualization.',
+    demo: 'https://github.com/NawafAlturayif/CrisisCompass',
+  },
+  {
+    title: 'Automated Intelligence Crawler & Resilient Pipeline',
+    tech: ['Python', 'SQLite', 'BeautifulSoup'],
+    description: 'Engineered a high-speed ingestion engine processing 1,000+ pages at 50 pages/min, achieving a 95% extraction rate across unstructured web data. Implemented a custom session-handling system to bypass Cloudflare BIC protections via dynamic cookie rotation, ensuring 24/7 uptime for data collection. Normalized over 10,000 unstructured records into a relational schema, enabling efficient SQL-based behavioral analysis and threat intelligence.',
+    demo: 'https://github.com/ailothh/Forum-Scraper',
+  },
+];
+
+const stagger = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.06, delayChildren: 0.3 } },
+};
+const fadeUp = {
+  hidden: { opacity: 0, y: 18 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
+};
+
+export default function Hero() {
+  const [activeProject, setActiveProject] = useState(null);
+
   return (
-    <Container id="home">
-      {/* Top Content */}
-      <div className="top-content">
-        <div className="hero-text">
-          <p>Hello, I'm</p>
-          <h1>Alexander</h1>
-        </div>
-        {/* Button and Social Media Icons */}
-        <div className="button-container">
-          <button className="button">
+    <section className="hero-section" style={{ paddingBottom: 0 }}>
+      <div className="grid-bg" />
+      <ParticlesComponent id="particles" />
+
+      <div className="hero-inner" style={{ alignItems: 'flex-start', paddingTop: '2rem' }}>
+        <motion.div
+          className="hero-left"
+          variants={stagger}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div variants={fadeUp}>
+            <div className="hero-name-alexander">ALEXANDER</div>
+            <div className="hero-name-winkler">WINKLER</div>
+          </motion.div>
+          <motion.div className="hero-cta" variants={fadeUp}>
             <a
-              href={resume}
-              download="Alexander Winkler Resume.pdf"
-              style={{ color: "inherit", textDecoration: "none" }}
+              href={`${base}/resume.pdf`}
+              download="Alexander_Winkler_Resume.pdf"
+              className="btn-cv-sleek"
             >
-              CV/Resume
+              <span className="btn-cv-icon">↓</span>
+              <span>Download CV</span>
             </a>
-          </button>
-          <div className="social-media">
-            <a
-              href="https://www.linkedin.com/in/alexwinklerr/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={linkedin} alt="LinkedIn" />
-            </a>
-            <a
-              href="https://github.com/ailothh"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <img src={github} alt="GitHub" />
-            </a>
+          </motion.div>
+        </motion.div>
+
+        <div className="hero-right">
+          <Terminal lines={heroLines} title="recon-scan" startDelay={1200} />
+          
+          <div className="hero-projects-grid">
+            {projectsData.map((project, index) => (
+              <div 
+                key={index} 
+                className="hero-project-box"
+                onClick={() => setActiveProject(project)}
+              >
+                <div className="hpb-top">
+                  <div className="hpb-num">0{index + 1}</div>
+                  <span className="hpb-arrow">→</span>
+                </div>
+                <div className="hpb-title">{project.title}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* Project Boxes */}
-      <div className="boxes-container">
-        {/* Box 4: Zillow */}
-        <div className="box">
-          <div className="box-title-container">
-            <div className="box-title">Zillow Hot Home Algorithm Exploitation</div>
-            <div className="box-icons">
-              <img src="/assets/images/zillow.png" alt="Zillow Logo" />
-            </div>
-          </div>
-          <div className="line"></div>
-          <div className="sub">Python, Next.js, SQLite, Git</div>
-          
-          {/* Research Paper Button - Moved to top */}
-          <div className="research-paper-top">
-            <a
-              href={researchPaper}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="research-paper-link"
+      <AnimatePresence>
+        {activeProject && (
+          <motion.div
+            className="modal-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setActiveProject(null)}
+          >
+            <motion.div
+              className="modal-container modal-container-single"
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
             >
-              <span>📄 Research Paper</span>
-            </a>
-          </div>
-          
-          <div className="box-content">
-          Conducted an independent security analysis of Zillow’s engagement-based ranking system, focusing on the Hot Home feature. Reverse-engineered the algorithm to identify weaknesses in rate-limiting and verification controls, demonstrating how engagement metrics could be artificially manipulated. Designed and executed controlled tests that increased a property’s visibility from 2 → 450+ views and generated 400 synthetic likes, successfully triggering the Hot Home designation. Leveraged custom OSINT tools to harvest and validate 2,000+ email addresses for account creation, achieving a 98% success rate. Authored a 10-page technical paper documenting methodology, impact analysis, and recommended mitigations, showcasing full-cycle security research and red-team methodology.</div>
-          <div className="rainbow rainbow_text_animated">
-            <a
-              href="https://github.com/ailothh/Zillow-Algorithm-Exploiter"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              Demo
-            </a>
-          </div>
-        </div>
-        {/* Box 1: Amazon Tool */}
-        <div className="box">
-          <div className="box-title-container">
-            <div className="box-title">Amazon Employee Search Tool</div>
-            <div className="box-icons">
-              <img src={amazon} alt="Amazon Icon" />
-            </div>
-          </div>
-          <div className="line"></div>
-          <div className="sub">Amazon RDS, Vercel, Next.js, FastAPI, Python, SQLite</div>
-          <p className="blank-paragraph"></p>
-          <div className="box-content">
-          Engineered a tool to search through a breach dataset of 1.2 million Amazon employee records by first name, uncovering that hundreds of senior and executive employees' personal data remained active two years after the breach. The application provided real-time access to emails, phone numbers, job titles, departments, office locations, manager names, and other detailed employee information—data that could be exploited in social engineering attacks. It featured a Next.js frontend paired with a FastAPI backend, initially leveraging SQLite for data storage before migrating to Amazon RDS (MySQL) to enhance performance and scalability. This architecture supported efficient querying of a large dataset with minimal maintenance overhead. Following the discovery, AWS Security intervened directly, requesting immediate removal of the database and halting further development. This project highlighted the persistent risks of breach data and the power of scalable architectures in security analysis.
-          </div>
-          <div className="rainbow rainbow_text_animated">
-            <a
-              href="https://employee-search-amazon-n4hjuem2g-ailothhs-projects.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              Demo
-            </a>
-          </div>
-        </div>
-
-        {/* Box 2: Ethical Scraper */}
-        <div className="box">
-          <div className="box-title-container">
-            <div className="box-title">Ethical Scraper</div>
-            <div className="box-icons">
-              <img src={dox} alt="Doxbin Icon" />
-              <img src={swat} alt="SwatWiki Icon" />
-            </div>
-          </div>
-          <div className="line"></div>
-          <div className="sub">Python, SQLite</div>
-          <p className="blank-paragraph"></p>
-          <div className="box-content">
-          Developed a Python-based scraping tool processing 1,000+ pages from forums like Doxbin and SwatWiki at a rate of 50 pages per minute, achieving 95% accuracy in extracting sensitive PII. The tool was capable of capturing over 10,000 records, including social security numbers, emails, phone numbers, addresses, and names from forum posts. A custom session handler was engineered to bypass Cloudflare's BIC anti-bot protections by dynamically updating authentication cookies, ensuring uninterrupted scraping. Implemented a live tracker that enabled the program to run continuously in the background and capture data in real time, with immediate detection of any failures. Data parsing was handled by BeautifulSoup with efficient storage and querying managed via SQLite.
-          </div>
-          <div className="rainbow rainbow_text_animated">
-            <a
-              href="https://github.com/ailothh/Forum-Scraper"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              Demo
-            </a>
-          </div>
-        </div>
-
-        {/* Box 3: UAV Specs Explorer */}
-        <div className="box">
-          <div className="box-title-container">
-            <div className="box-title">UAV Specs Explorer</div>
-            <div className="box-icons">
-              <img src={drone} alt="Drone Icon" />
-            </div>
-          </div>
-          <div className="line"></div>
-          <div className="sub">React, JavaScript, GitHub Pages, CSS/HTML</div>
-          <div className="box-content">
-          Developed a React-based search tool that dynamically queries over 13,000 military drones, retrieving 15+ technical specifications per drone in real time using the Wikimedia API. The application delivers optimized search results with sub-500ms response times, providing users with fast, accurate access to detailed, structured datasets.           </div>
-          <div className="rainbow rainbow_text_animated">
-            <a
-              href="https://ailothh.github.io/Military-Drone-Search/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "inherit", textDecoration: "none" }}
-            >
-              Demo
-            </a>
-          </div>
-        </div>
-
-
-      </div>
-    </Container>
+              <div className="modal-header">
+                <h3 className="modal-title">Project Details</h3>
+                <button className="modal-close" onClick={() => setActiveProject(null)}>✕</button>
+              </div>
+              <div className="modal-body">
+                <div className="modal-scroll-container">
+                  <div className="project-card-modal single-project-view">
+                    <div className="project-title">
+                      {activeProject.title}
+                      {activeProject.subtitle && <span className="project-subtitle">— {activeProject.subtitle}</span>}
+                    </div>
+                    <div className="project-tech">
+                      {activeProject.tech.map(t => <span key={t} className="project-tech-badge-modal">{t}</span>)}
+                    </div>
+                    <div className="project-desc-modal">
+                      {activeProject.description.split('\n').filter(p => p.trim()).map((para, i) => {
+                        const isBullet = para.trim().startsWith('•');
+                        const text = isBullet ? para.replace('•', '').trim() : para;
+                        return isBullet ? (
+                          <li key={i} style={{ marginBottom: '0.6rem', listStyleType: 'disc', marginLeft: '1.2rem', color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6' }}>
+                            {text}
+                          </li>
+                        ) : (
+                          <p key={i} style={{ marginBottom: '1rem', color: 'rgba(255, 255, 255, 0.7)', lineHeight: '1.6' }}>
+                            {text}
+                          </p>
+                        );
+                      })}
+                    </div>
+                    <div className="project-actions">
+                      <a href={activeProject.demo} target="_blank" rel="noopener noreferrer" className="project-link">
+                        View Project →
+                      </a>
+                      {activeProject.researchPaper && (
+                        <a href={activeProject.researchPaper} target="_blank" rel="noopener noreferrer" className="project-link project-link-muted">
+                          Research Paper →
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
   );
 }
-
