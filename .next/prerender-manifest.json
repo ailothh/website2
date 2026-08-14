@@ -1,30 +1,6 @@
 {
   "version": 4,
   "routes": {
-    "/": {
-      "experimentalBypassFor": [
-        {
-          "type": "header",
-          "key": "next-action"
-        },
-        {
-          "type": "header",
-          "key": "content-type",
-          "value": "multipart/form-data;.*"
-        }
-      ],
-      "initialRevalidateSeconds": false,
-      "srcRoute": "/",
-      "dataRoute": "/index.rsc",
-      "allowHeader": [
-        "host",
-        "x-matched-path",
-        "x-prerender-revalidate",
-        "x-prerender-revalidate-if-generated",
-        "x-next-revalidated-tags",
-        "x-next-revalidate-tag-token"
-      ]
-    },
     "/_not-found": {
       "initialStatus": 404,
       "experimentalBypassFor": [
@@ -49,13 +25,37 @@
         "x-next-revalidated-tags",
         "x-next-revalidate-tag-token"
       ]
+    },
+    "/": {
+      "experimentalBypassFor": [
+        {
+          "type": "header",
+          "key": "next-action"
+        },
+        {
+          "type": "header",
+          "key": "content-type",
+          "value": "multipart/form-data;.*"
+        }
+      ],
+      "initialRevalidateSeconds": false,
+      "srcRoute": "/",
+      "dataRoute": "/index.rsc",
+      "allowHeader": [
+        "host",
+        "x-matched-path",
+        "x-prerender-revalidate",
+        "x-prerender-revalidate-if-generated",
+        "x-next-revalidated-tags",
+        "x-next-revalidate-tag-token"
+      ]
     }
   },
   "dynamicRoutes": {},
   "notFoundRoutes": [],
   "preview": {
-    "previewModeId": "be436e7a5f0ca69ed7ed6d4b6b6663e9",
-    "previewModeSigningKey": "4b1c8393ea9fce186ea6f2d7009ea36a80e79aceb477c00af8b7a09ea2d7a5a6",
-    "previewModeEncryptionKey": "fb47f8fc28c780a0763cd246da08bc53eed9fb27fb49a7406c549369488df8ee"
+    "previewModeId": "d0819c82ccfcf3b70da883a1a903185d",
+    "previewModeSigningKey": "9499f7febb478f5ebab9645eb8af7f9fab4e129d1d38558a6f7da2e2a613881a",
+    "previewModeEncryptionKey": "3569a463375954dd428f4fcb708cb002b90b19ae71a42420789f21be1874db87"
   }
 }
