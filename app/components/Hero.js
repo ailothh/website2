@@ -77,8 +77,8 @@ export default function Hero() {
           </motion.div>
           <motion.div className="hero-cta" variants={fadeUp}>
             <a
-              href={`${base}/resume.pdf`}
-              download="Alexander_Winkler_Resume.pdf"
+              href={`${base}/Alexander_Winkler_Resume_2026.pdf`}
+              download="Alexander_Winkler_Resume_2026.pdf"
               className="btn-cv-sleek"
             >
               <span className="btn-cv-icon">↓</span>
